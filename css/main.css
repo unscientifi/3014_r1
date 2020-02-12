@@ -1,0 +1,45 @@
+body
+{
+    padding: 20px;
+}
+
+h1
+{
+    font-family: 'Fredoka One', cursive;
+}
+
+h2
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+ul
+{
+    text-decoration: none;
+}
+
+li 
+{
+    font-family: 'Fredoka One', cursive;
+}
+
+li a 
+{
+    text-transform: none;
+    text-decoration: none;
+}
+
+label
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+#return
+{
+    font-family: 'Fredoka One', cursive;
+}
+
+body
+{
+    background-color: beige;
+}

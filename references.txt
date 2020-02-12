@@ -1,0 +1,33 @@
+Team: Yasmina Orellana-Tavares & Ryan (Anqi) Sun
+
+Links we used to develop this assignment:
+
+https://www.tutorialrepublic.com/php-tutorial/php-cookies.php?fbclid=IwAR0tpKp05dzDGjeVj6kNGv2eJMrTY1UBDNWRDm32h5XYgm4qsN4wJn41PYM
+
+https://www.tutorialrepublic.com/php-tutorial/php-cookies.php
+
+https://tecadmin.net/get-current-date-and-time-in-php/?fbclid=IwAR32y4v_SQ0HMgxq-0dRUX2hf-atiIArk83vNbgf3t1-DLwuPo8RvCYvPaE
+
+https://tecadmin.net/get-current-date-and-time-in-php
+
+https://stackoverflow.com/questions/37120328/how-to-limit-the-number-of-login-attempts-in-a-login-script/37120660?fbclid=IwAR3Xh5izT6cLMe9noHpVX0nly4URn8-k8RiAy4heruAh5kfZIyKB4q4fD7k
+
+https://stackoverflow.com/questions/37120328/how-to-limit-the-number-of-login-attempts-in-a-login-script/37120660
+
+http://www.mashlog.com/create-simple-login-form-php-mysql.html
+
+https://www.webslesson.info/2016/06/php-login-script-using-pdo-with-session.html
+
+https://www.w3schools.com/php/php_sessions.asp
+
+https://www.w3schools.com/php/php_cookies.asp
+
+https://www.w3schools.com/php/php_date.asp
+
+https://www.lynda.com/MySQL-tutorials/PHP-MySQL-Essential-Training-2-Build-CMS/587675-2.html\
+
+https://www.php.net/manual/en/function.time.php
+
+https://www.php.net/manual/en/class.datetimezone.php
+
+https://www.php.net/manual/en/session.examples.basic.php
