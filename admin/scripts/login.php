@@ -4,12 +4,17 @@
 // session variables
 
 $_SESSION['user-login'] = 0;
+
 $_SESSION['loggedin-status'] = 0; // 0 is loggedin, 1 is logged out
 
 
 // login function
 function login($username, $password, $ip) {
-     
+    
+    //logged in status
+    
+    $_SESSION['loggedin-status'] += 1;
+    
     // connect to database
      $pdo = Database::getInstance()->getConnection();
 
@@ -22,38 +27,37 @@ function login($username, $password, $ip) {
          )
      );
 
-      //logged in status
-    $_SESSION['loggedin-status'] += 1;
+  
 
-    //  if ($_SESSION['loggedin-status'] == 1) {
+     if ($_SESSION['loggedin-status'] == 1) {
 
-    //     $message = 'maximum log in attempts reached, please wait 30 seconds';
+        $message = 'maximum log in attempts reached, please wait 30 seconds';
               
-    //         // get the current time and take the number of seconds
-    //           $now =  substr(date("Y-m-d H:i:s"),-2);
+            // get the current time and take the number of seconds
+              $now =  substr(date("Y-m-d H:i:s"),-2);
 
-    //           // if the number of seconds since the functoin was called is greater than 30, unlockout the user
-    //           // and give them another 3 attempts
+              // if the number of seconds since the functoin was called is greater than 30, unlockout the user
+              // and give them another 3 attempts
 
-    //           if ($now >= 30){
+              if ($now >= 30){
 
-    //               $_SESSION['user-login'] = 0;
-    //               $_SESSION['loggedin-status'] = 0;
-    //           } 
+                  $_SESSION['user-login'] = 0;
+                  $_SESSION['loggedin-status'] = 0;
+              } 
 
-    //     // if the user is not locked out, check to see how many login attempts they took
-    //     // if they tried to log in 3 times, then reset the attempts variable and lock the user out    
+        // if the user is not locked out, check to see how many login attempts they took
+        // if they tried to log in 3 times, then reset the attempts variable and lock the user out    
 
-    // } elseif ($_SESSION['loggedin-status'] > 2) {
-    //     // lock the user out 
+    } elseif ($_SESSION['loggedin-status'] > 2) {
+        // lock the user out 
 
-    //     $_SESSION['loggedin-status'] = 1;
-    //     $_SESSION['user-login'] = 0;
+        $_SESSION['loggedin-status'] = 1;
+        $_SESSION['user-login'] = 0;
         
-    //     $message = 'maximum log in attempts reached, please wait 30 seconds';
+        $message = 'maximum log in attempts reached, please wait 30 seconds';
 
 
-    // } else {
+    } else {
 
 // if the user isnt locked out and has not reached 3 attempts, then check their credentials to see if 
 // the username and pw is valid 
@@ -74,8 +78,8 @@ function login($username, $password, $ip) {
     
             while($found_user = $user_check->fetch(PDO::FETCH_ASSOC)){
                 $id = $found_user['user_id'];
-                $_SESSION['user_id'] = $id;
-			    $_SESSION['user_name'] = $found_user['user_name'];
+               
+                $message = 'You just logged in';
                 
     
                 // updates user ip when logged in
@@ -88,6 +92,10 @@ function login($username, $password, $ip) {
                     )
                 );
 
+
+                // reset and go to the landing page 
+                $_SESSION['user-login'] = 0;
+                $_SESSION['loggedin-status'] = 0;
                 redirect_to('admin/landing.php');
             }
 
@@ -101,3 +109,4 @@ function login($username, $password, $ip) {
 
 }
 
+}
