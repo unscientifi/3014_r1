@@ -5,7 +5,7 @@
 
 $_SESSION['user-login'] = 0;
 
-$_SESSION['loggedin-status'] = 0; // 0 is loggedin, 1 is logged out
+$_SESSION['user-loggedin'] = 0; // 0 is loggedin, 1 is logged out
 
 
 // login function
@@ -13,7 +13,7 @@ function login($username, $password, $ip) {
     
     //logged in status
     
-    $_SESSION['loggedin-status'] += 1;
+    $_SESSION['user-loggedin'] += 1;
     
     // connect to database
      $pdo = Database::getInstance()->getConnection();
@@ -29,29 +29,29 @@ function login($username, $password, $ip) {
 
   
 
-     if ($_SESSION['loggedin-status'] == 1) {
+     if ($_SESSION['user-loggedin'] == 1) {
 
-        $message = 'maximum log in attempts reached, please wait 30 seconds';
+        $message = 'You reached the maximum log in, please wait and try again';
               
             // get the current time and take the number of seconds
-              $now =  substr(date("Y-m-d H:i:s"),-2);
+              $currentTime =  substr(date("Y-m-d H:i:s"),-2);
 
               // if the number of seconds since the functoin was called is greater than 30, unlockout the user
               // and give them another 3 attempts
 
-              if ($now >= 30){
+              if ($currentTime >= 30){
 
                   $_SESSION['user-login'] = 0;
-                  $_SESSION['loggedin-status'] = 0;
+                  $_SESSION['user-loggedin'] = 0;
               } 
 
         // if the user is not locked out, check to see how many login attempts they took
         // if they tried to log in 3 times, then reset the attempts variable and lock the user out    
 
-    } elseif ($_SESSION['loggedin-status'] > 2) {
+    } elseif ($_SESSION['user-loggedin'] > 2) {
         // lock the user out 
 
-        $_SESSION['loggedin-status'] = 1;
+        $_SESSION['user-loggedin'] = 1;
         $_SESSION['user-login'] = 0;
         
         $message = 'maximum log in attempts reached, please wait 30 seconds';
@@ -95,7 +95,7 @@ function login($username, $password, $ip) {
 
                 // reset and go to the landing page 
                 $_SESSION['user-login'] = 0;
-                $_SESSION['loggedin-status'] = 0;
+                $_SESSION['user-loggedin'] = 0;
                 redirect_to('admin/landing.php');
             }
 

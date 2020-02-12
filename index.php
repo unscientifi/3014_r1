@@ -21,7 +21,7 @@ if(!empty($username) && !empty($password)) {
 } 
 }
 
-echo 'Login attempts: '.$_SESSION['loggedin-status'];
+echo 'Login attempts: '.$_SESSION['user-loggedin'];
 
 
 

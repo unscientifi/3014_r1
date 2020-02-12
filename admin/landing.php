@@ -1,23 +1,26 @@
 <?php
 require_once '../load.php';
-$time = time();
-// set a time variable
-date_default_timezone_set('America/Toronto');
-// define which timezone we are using/in
-$now = date("H");
-// define the current hour
 
-if ($now < "12") {
+$time = time();
+
+// define which timezone we are using/in
+date_default_timezone_set('America/Toronto');
+
+// define the current hour
+$currentTime = date("H");
+
+
+if ($currentTime < "12") {
 echo "Hey you, good morning! Have you had a good breakfast today?";
 } 
 //if they log in before 12pm, show good morning greeting
 
-elseif ($now >= "12" && $now < "18") {
+elseif ($currentTime >= "12" && $currentTime < "18") {
 echo "Good afternoon, you sweet sunflower. Hope your day is going well!";
 } 
 //if they log in after or on 12pm and before 6pm, show afternoon greeting
 
-elseif ($now >= "18") {
+elseif ($currentTime >= "18") {
 echo "Good evening, friend. Time to kick your feet up!";
 } 
 //if they log in after or on 6pm, show evening greeting
