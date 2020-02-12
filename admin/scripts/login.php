@@ -34,11 +34,11 @@ function login($username, $password, $ip) {
         $message = 'You reached the maximum log in, please wait and try again';
               
             // fetch current time and take the number of seconds
-              $waitTime =  substr(date("Y-m-d H:i:s"),-2);
+              $now =  substr(date("Y-m-d H:i:s"),-2);
 
               // give them another 3 attempts after the wait
 
-              if ($waitTime >= 15){
+              if ($now >= 15){
 
                   $_SESSION['user-login'] = 0;
                   $_SESSION['user-loggedin'] = 0;
