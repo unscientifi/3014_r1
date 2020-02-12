@@ -35,7 +35,7 @@ function login($username, $password, $ip) {
               
             // fetch current time and take the number of seconds
               $now =  substr(date("Y-m-d H:i:s"),-2);
-
+                $message = "What's your password? Wait and think!";
               // give them another 3 attempts after the wait
 
               if ($now >= 15){
@@ -46,12 +46,16 @@ function login($username, $password, $ip) {
 
        //
 
-    } elseif ($_SESSION['user-login'] > 2) {
+    } elseif ($_SESSION['user-login'] > 3) {
         // lock the user out 
 
+        redirect_to('../logout.php');
+        
         $_SESSION['user-loggedin'] = 1;
         $_SESSION['user-login'] = 0;
-        
+
+       
+
         $message = 'maximum log in attempts reached, please wait 30 seconds';
 
 
