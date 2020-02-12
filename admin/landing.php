@@ -11,17 +11,17 @@ $currentTime = date("H");
 
 
 if ($currentTime < "12") {
-echo "Hey you, good morning! Have you had a good breakfast today?";
+echo "Morning! My friend!";
 } 
 //if they log in before 12pm, show good morning greeting
 
 elseif ($currentTime >= "12" && $currentTime < "18") {
-echo "Good afternoon, you sweet sunflower. Hope your day is going well!";
+echo "Good afternoon!";
 } 
 //if they log in after or on 12pm and before 6pm, show afternoon greeting
 
 elseif ($currentTime >= "18") {
-echo "Good evening, friend. Time to kick your feet up!";
+echo "Good evening pal!";
 } 
 //if they log in after or on 6pm, show evening greeting
 
